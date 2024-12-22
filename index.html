@@ -43,6 +43,7 @@ body {
     async function fetchKey() {
         const params = new URLSearchParams(new URL(window.location.href).search);
         const key = params.get("key");
+        console.log(key);
         document.getElementById("key").textContent = key;
     }
 
