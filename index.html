@@ -35,16 +35,21 @@ body {
 <body>
 <div class="container">
   <h1 class="title">NExTool Key System</h1>
-  <p class="message">Thanks for doing Linkvertise for NExTool Key System. Here is your key:</p>
+  <p class="message" id="thanks">Thanks for doing Linkvertise for NExTool Key System. Here is your key:</p>
   <p class="message" id="key">Loading key...</p>
-  <button class="button" onclick="copy();">Copy key</button>
+  <button class="button" id="copykey" onclick="copy();">Copy key</button>
 </div>
 <script>
     async function fetchKey() {
         const params = new URLSearchParams(new URL(window.location.href).search);
         const key = params.get("key");
-        console.log(key);
-        document.getElementById("key").textContent = key;
+        if (key == null) {
+          document.getElementById("thanks").textContent = "Nice try! You can't just visit this URL to get a free key.";
+          document.getElementById("copykey").style.display = "none";
+        } else {
+          console.log(key);
+          document.getElementById("key").textContent = key;
+        }
     }
 
     function copy() {
