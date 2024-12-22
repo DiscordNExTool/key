@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.message {
+  margin-bottom: 20px;
+}
+
+.button {
+  background-color: #808080; /* Gray */
+  border: 2px solid black;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1 class="title">NExTool Key System</h1>
+  <p class="message">Thanks for doing Linkvertise for NExTool Key System. Here is your key:</p>
+  <p class="message" id="key">Loading key...</p>
+  <button class="button" onclick="copy();">Copy key</button>
+</div>
+<script>
+    async function fetchKey() {
+        const params = new URLSearchParams(new URL(window.location.href).search);
+        const key = params.get("key");
+        document.getElementById("key").textContent = key;
+    }
+
+    function copy() {
+        navigator.clipboard.writeText(document.getElementById("key").textContent);
+        alert("Copied key to clipboard.");
+    }
+
+    // Fetch the key on page load
+    fetchKey();
+
+</script>
+</body>
+</html>
