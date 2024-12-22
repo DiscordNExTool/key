@@ -46,6 +46,7 @@ body {
         if (key == null) {
           document.getElementById("thanks").textContent = "Nice try! You can't just visit this URL to get a free key.";
           document.getElementById("copykey").style.display = "none";
+          document.getElementById("key").style.display = "none";
         } else {
           console.log(key);
           document.getElementById("key").textContent = key;
