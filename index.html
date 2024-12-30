@@ -34,8 +34,8 @@ body {
 </head>
 <body>
 <div class="container">
-  <h1 class="title">NExTool Key System</h1>
-  <p class="message" id="thanks">Thanks for doing Linkvertise for NExTool Key System. Here is your key:</p>
+  <h1 class="title" id="datitle">Loading...</h1>
+  <p class="message" id="thanks">Thanks for doing Linkvertise for Loading.... Here is your key:</p>
   <p class="message" id="key">Loading key...</p>
   <button class="button" id="copykey" onclick="copy();">Copy key</button>
 </div>
@@ -49,6 +49,8 @@ body {
           document.getElementById("key").style.display = "none";
         } else {
           console.log(key);
+          document.getElementById("datitle").textContent = params.get("title");
+          document.getElementById("thanks").textContent = `Thanks for doing Linkvertise for ${params.get("title")}. Here is your key:`;
           document.getElementById("key").textContent = key;
         }
     }
